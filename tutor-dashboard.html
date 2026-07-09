@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduBoost Tutor Dashboard</title>
+
+    <link rel="stylesheet" href="css/tutor-dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ==========================
+         SIDEBAR
+    =========================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+
+            <h2>EduBoost</h2>
+
+            <p>Tutor Portal</p>
+
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li class="active">
+                <a href="#">
+                    <span>🏠</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>👨‍🎓</span>
+                    <span>My Students</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>📚</span>
+                    <span>My Subjects</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>📝</span>
+                    <span>Assignments</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>🎥</span>
+                    <span>Live Classes</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>📂</span>
+                    <span>Resources</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>💬</span>
+                    <span>Messages</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>📅</span>
+                    <span>Calendar</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>💰</span>
+                    <span>Earnings</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>👤</span>
+                    <span>My Profile</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+            <li class="logout">
+                <a href="#" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ==========================
+         MAIN CONTENT
+    =========================== -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="top-header">
+
+            <button class="menu-toggle" id="menu-toggle">
+                ☰
+            </button>
+
+            <div class="header-title">
+
+                <h2>Tutor Dashboard</h2>
+
+                <p>Manage your classes and students efficiently.</p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        placeholder="Search...">
+
+                </div>
+
+                <button class="icon-button">
+                    🔔
+                </button>
+
+                <button class="icon-button">
+                    💬
+                </button>
+
+                <div class="tutor-profile">
+
+                    <img
+                        src="images/default-profile.png"
+                        alt="Tutor"
+                        id="profile-image">
+
+                    <div>
+
+                        <h4 id="tutor-name">
+
+                            Loading...
+
+                        </h4>
+
+                        <small id="tutor-subject">
+
+                            Tutor
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Welcome Card -->
+
+        <section class="welcome-card">
+
+            <div>
+
+                <h1>
+
+                    Welcome back,
+
+                    <span id="welcome-name">
+
+                        Tutor
+
+                    </span>
+
+                    👋
+
+                </h1>
+
+                <p>
+
+                    Here's a quick overview of your teaching activities today.
+
+                </p>
+
+            </div>
+
+            <button class="primary-btn">
+
+                Start Live Class
+
+            </button>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    👨‍🎓
+
+                </div>
+
+                <div>
+
+                    <h2 id="students-count">
+
+                        0
+
+                    </h2>
+
+                    <p>Total Students</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    📚
+
+                </div>
+
+                <div>
+
+                    <h2 id="subjects-count">
+
+                        0
+
+                    </h2>
+
+                    <p>Subjects</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    📝
+
+                </div>
+
+                <div>
+
+                    <h2 id="assignments-count">
+
+                        0
+
+                    </h2>
+
+                    <p>Assignments</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    💰
+
+                </div>
+
+                <div>
+
+                    <h2 id="earnings-count">
+
+                        ₦0
+
+                    </h2>
+
+                    <p>This Month</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+                <!-- ==========================
+             DASHBOARD CONTENT
+        =========================== -->
+
+        <section class="dashboard-grid">
+
+            <!-- Today's Schedule -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h2>📅 Today's Schedule</h2>
+
+                    <a href="#">View All</a>
+
+                </div>
+
+                <div class="schedule-list">
+
+                    <div class="schedule-item">
+
+                        <div>
+
+                            <h4>Mathematics - SS2</h4>
+
+                            <p>09:00 AM - 10:30 AM</p>
+
+                        </div>
+
+                        <span class="status live">Live</span>
+
+                    </div>
+
+                    <div class="schedule-item">
+
+                        <div>
+
+                            <h4>Physics - SS3</h4>
+
+                            <p>11:30 AM - 01:00 PM</p>
+
+                        </div>
+
+                        <span class="status upcoming">Upcoming</span>
+
+                    </div>
+
+                    <div class="schedule-item">
+
+                        <div>
+
+                            <h4>Chemistry Revision</h4>
+
+                            <p>03:00 PM - 04:00 PM</p>
+
+                        </div>
+
+                        <span class="status upcoming">Upcoming</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Recent Students -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h2>👨‍🎓 Recent Students</h2>
+
+                    <a href="#">See All</a>
+
+                </div>
+
+                <div class="student-list">
+
+                    <div class="student-item">
+
+                        <img src="images/default-profile.png" alt="Student">
+
+                        <div>
+
+                            <h4>John Doe</h4>
+
+                            <p>SS2 Mathematics</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="student-item">
+
+                        <img src="images/default-profile.png" alt="Student">
+
+                        <div>
+
+                            <h4>Sarah Johnson</h4>
+
+                            <p>SS3 Physics</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="student-item">
+
+                        <img src="images/default-profile.png" alt="Student">
+
+                        <div>
+
+                            <h4>David Michael</h4>
+
+                            <p>JSS3 Basic Science</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================
+             SECOND ROW
+        =========================== -->
+
+        <section class="dashboard-grid">
+
+            <!-- Recent Messages -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h2>💬 Recent Messages</h2>
+
+                    <a href="#">Open Inbox</a>
+
+                </div>
+
+                <div class="message-list">
+
+                    <div class="message-item">
+
+                        <strong>Mary</strong>
+
+                        <p>Thank you for yesterday's lesson.</p>
+
+                    </div>
+
+                    <div class="message-item">
+
+                        <strong>Daniel</strong>
+
+                        <p>I need help with Assignment 4.</p>
+
+                    </div>
+
+                    <div class="message-item">
+
+                        <strong>Admin</strong>
+
+                        <p>Your tutor account has been verified.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Teaching Progress -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h2>📈 Teaching Progress</h2>
+
+                </div>
+
+                <div class="progress-list">
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+
+                            <span>Mathematics</span>
+
+                            <span>82%</span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill progress-82"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+
+                            <span>Physics</span>
+
+                            <span>65%</span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill progress-65"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+
+                            <span>Chemistry</span>
+
+                            <span>47%</span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill progress-47"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================
+             THIRD ROW
+        =========================== -->
+
+        <section class="dashboard-grid">
+
+            <!-- Quick Actions -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h2>⚡ Quick Actions</h2>
+
+                </div>
+
+                <div class="quick-actions">
+
+                    <button class="action-btn">
+                        📚 Upload Resource
+                    </button>
+
+                    <button class="action-btn">
+                        📝 Create Assignment
+                    </button>
+
+                    <button class="action-btn">
+                        🎥 Start Live Class
+                    </button>
+
+                    <button class="action-btn">
+                        👨‍🎓 View Students
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Announcements -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h2>📢 Announcements</h2>
+
+                </div>
+
+                <div class="announcement-list">
+
+                    <div class="announcement-item">
+
+                        <h4>System Update</h4>
+
+                        <p>New classroom features will be available next week.</p>
+
+                    </div>
+
+                    <div class="announcement-item">
+
+                        <h4>Monthly Meeting</h4>
+
+                        <p>All tutors are invited to the online meeting on Friday.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================
+             ACHIEVEMENTS
+        =========================== -->
+
+        <section class="dashboard-card achievements">
+
+            <div class="card-header">
+
+                <h2>🏆 Tutor Achievements</h2>
+
+            </div>
+
+            <div class="achievement-grid">
+
+                <div class="achievement-card">
+
+                    <h3>⭐ 4.9 Rating</h3>
+
+                    <p>Average student rating.</p>
+
+                </div>
+
+                <div class="achievement-card">
+
+                    <h3>🎓 150+ Lessons</h3>
+
+                    <p>Lessons successfully completed.</p>
+
+                </div>
+
+                <div class="achievement-card">
+
+                    <h3>👨‍🎓 80 Students</h3>
+
+                    <p>Students taught on EduBoost.</p>
+
+                </div>
+
+                <div class="achievement-card">
+
+                    <h3>🏅 Top Tutor</h3>
+
+                    <p>Recognized for excellent teaching performance.</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/tutor-dashboard.js"></script>
+
+</body>
+</html>

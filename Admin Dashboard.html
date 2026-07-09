@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - EduBoost</title>
+    <link rel="stylesheet" href="css/admin-dashboard.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="admin-header">
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <h1>EduBoost Admin</h1>
+      </div>
+
+      <div class="header-right">
+        <div class="admin-profile">
+          <span id="admin-name">Admin</span>
+          <details class="profile-dropdown">
+            <summary>
+              <img src="profile.jpg" alt="Admin Profile" />
+            </summary>
+            <ul>
+              <li><a href="">Settings</a></li>
+              <li><a href="" id="admin-logout">Logout</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="admin-container">
+      <!-- Sidebar Navigation -->
+      <aside class="admin-sidebar">
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#" class="nav-item active" data-tab="dashboard">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-item" data-tab="students">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                Students
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-item" data-tab="tutors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Tutors
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="admin-main">
+        <!-- Dashboard Tab -->
+        <section id="dashboard" class="tab-content active">
+          <div class="dashboard-header">
+            <h2>Dashboard Overview</h2>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon students-icon">👥</div>
+              <div class="stat-info">
+                <h3>Total Students</h3>
+                <p class="stat-number" id="total-students">0</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon tutors-icon">👨‍🏫</div>
+              <div class="stat-info">
+                <h3>Total Tutors</h3>
+                <p class="stat-number" id="total-tutors">0</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon pending-icon">⏳</div>
+              <div class="stat-info">
+                <h3>Pending Tutors</h3>
+                <p class="stat-number" id="pending-tutors">0</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon approved-icon">✅</div>
+              <div class="stat-info">
+                <h3>Approved Tutors</h3>
+                <p class="stat-number" id="approved-tutors">0</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <div id="activity-list" class="activity-list">
+              <!-- Activity items will be added here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Students Tab -->
+        <section id="students" class="tab-content">
+          <div class="content-header">
+            <h2>Manage Students</h2>
+            <div class="search-box">
+              <input type="search" id="students-search" placeholder="Search students..." />
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Profile</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Registration Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="students-table-body">
+                <!-- Student rows will be added here -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Tutors Tab -->
+        <section id="tutors" class="tab-content">
+          <div class="content-header">
+            <h2>Manage Tutors</h2>
+            <div class="search-box">
+              <input type="search" id="tutors-search" placeholder="Search tutors..." />
+            </div>
+          </div>
+
+          <!-- Tutor Status Filter -->
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Tutors</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="approved">Approved</button>
+            <button class="filter-btn" data-filter="rejected">Rejected</button>
+          </div>
+
+          <div class="tutors-grid" id="tutors-grid">
+            <!-- Tutor cards will be added here -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Modal for tutor details -->
+    <div id="tutor-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modal-body">
+          <!-- Tutor details will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="js/admin-dashboard.js"></script>
+  </body>
+</html>

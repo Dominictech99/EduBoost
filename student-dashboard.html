@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard | EduBoost</title>
+
+    <link rel="stylesheet" href="css/student-dashboard.css" />
+  </head>
+
+  <body>
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">EduBoost</div>
+
+        <nav class="sidebar-menu">
+          <a href="#" class="active"> Dashboard </a>
+
+          <a href="#"> My Courses </a>
+
+          <a href="#"> Assignments </a>
+
+          <a href="#"> Quiz Results </a>
+
+          <a href="#"> Calendar </a>
+
+          <a href="#"> Resources </a>
+
+          <a href="#"> Messages </a>
+
+          <a href="#"> Certificates </a>
+
+          <a href="#"> Settings </a>
+
+          <a href="#"> Logout </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+          <div class="menu-button">☰</div>
+
+          <div class="search-box">
+            <input type="search" placeholder="Search courses, lessons..." />
+          </div>
+
+          <div class="student-profile">
+            <div class="notification">
+              🔔
+
+              <div class="notification-panel">
+                <h4>Notifications</h4>
+
+                <p>New Mathematics lesson available</p>
+                <p>Assignment deadline tomorrow</p>
+                <p>Quiz results published</p>
+              </div>
+            </div>
+
+            <div class="profile-wrapper">
+              <div class="profile-info">
+                <h4 id="studentName">Loading...</h4>
+                <span id="studentRole">Student</span>
+
+<p id="studentLevel"></p>
+              </div>
+
+              <div class="profile-dropdown">
+                <a href="#">My Profile</a>
+                <a href="#">Account Settings</a>
+                <a href="#">Logout</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+
+    <div>
+
+        <h1 id="welcomeMessage">
+            Welcome back! 👋
+        </h1>
+
+        <p>
+            Continue your learning journey and achieve your academic goals.
+        </p>
+
+        <button>
+            Continue Learning
+        </button>
+
+    </div>
+
+</section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+          <div class="stat-card">
+            <h3 id="courseCount">0</h3>
+            <p>Enrolled Courses</p>
+          </div>
+
+          <div class="stat-card">
+            <h3 id="lessonCount">0</h3>
+            <p>Completed Lessons</p>
+          </div>
+
+          <div class="stat-card">
+            <h3 id="quizScore">0%</h3>
+            <p>Quiz Average</p>
+          </div>
+
+          <div class="stat-card">
+            <h3 id="learningStreak">0</h3>
+            <p>Learning Streak</p>
+          </div>
+        </section>
+
+        <!-- Continue Learning Section -->
+        <section class="learning-section">
+          <div class="section-header">
+            <h2>Continue Learning</h2>
+            <a href="#">View All</a>
+          </div>
+
+          <div class="course-grid">
+            <div class="course-card">
+              <h3>Mathematics</h3>
+
+              <p>Secondary School Mathematics</p>
+
+              <div class="progress-bar">
+                <div class="progress"></div>
+              </div>
+
+              <span> 70% Completed </span>
+            </div>
+
+            <div class="course-card">
+              <h3>English Language</h3>
+
+              <p>Grammar and Writing Skills</p>
+
+              <div class="progress-bar">
+                <div class="progress"></div>
+              </div>
+
+              <span> 45% Completed </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Upcoming Tasks Section -->
+        <section class="tasks-section">
+          <div class="section-header">
+            <h2>Upcoming Tasks</h2>
+          </div>
+
+          <div class="task-list">
+            <div class="task-card">
+              <h3>Mathematics Assignment</h3>
+              <p>Due: Tomorrow</p>
+            </div>
+
+            <div class="task-card">
+              <h3>English Quiz</h3>
+              <p>Due: Friday</p>
+            </div>
+
+            <div class="task-card">
+              <h3>Science Lesson</h3>
+              <p>Scheduled: Monday</p>
+            </div>
+
+            <section class="classes-section">
+              <h2>Upcoming Classes</h2>
+
+              <div class="class-grid">
+                <div class="class-card">
+                  <h3>Mathematics</h3>
+
+                  <p>Today - 4:00 PM</p>
+
+                  <span> Tutor: Mr James </span>
+                </div>
+
+                <div class="class-card">
+                  <h3>Chemistry</h3>
+
+                  <p>Tomorrow - 2:00 PM</p>
+
+                  <span> Tutor: Mrs Ada </span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Recent Activity -->
+
+            <section class="activity-section">
+              <div id="activityList">
+                <div class="section-header">
+                  <h2>Recent Activity</h2>
+                </div>
+
+                <div class="activity-card">
+                  <p>✅ Completed Mathematics Chapter 5</p>
+
+                  <span>2 hours ago</span>
+                </div>
+
+                <div class="activity-card">
+                  <p>📘 Started English Grammar Lesson</p>
+
+                  <span>Yesterday</span>
+                </div>
+
+                <div class="activity-card">
+                  <p>🏆 Earned a Quiz Achievement</p>
+
+                  <span>3 days ago</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Recommended Courses -->
+
+            <section class="recommended-section">
+              <div class="section-header">
+                <h2>Recommended Courses</h2>
+              </div>
+
+              <div class="course-grid" id="studentCourses">
+                <div class="course-card">
+                  <h3>Physics Masterclass</h3>
+
+                  <p>Improve your understanding of physics concepts.</p>
+
+                  <button>Start Course</button>
+                </div>
+
+                <div class="course-card">
+                  <h3>Chemistry Essentials</h3>
+
+                  <p>Learn chemistry with structured lessons.</p>
+
+                  <button>Start Course</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/student-dashboard.js"></script>
+  </body>
+</html>
