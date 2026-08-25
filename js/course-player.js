@@ -13,7 +13,7 @@ async function loadLessons() {
     try {
 
         const response = await fetch(
-            `http://localhost:3000/api/lessons/course/${courseId}`
+            `https://eduboost-x7ia.onrender.com/api/admin/api/lessons/course/${courseId}`
         );
 
         const lessons = await response.json();

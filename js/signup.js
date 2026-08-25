@@ -37,19 +37,19 @@ signupForm.addEventListener("submit", async (e) => {
     try {
         console.log("Sending signup request...");
 
-        const response = await fetch("http://localhost:3000/api/auth/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name,
-                email,
-                password,
-                level,
-                profileImage: profileImageBase64,
-            }),
-        });
+        const response = await fetch("https://eduboost-x7ia.onrender.com/api/auth/signup", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        name,
+        email,
+        password,
+        level,
+        profileImage: profileImageBase64,
+    }),
+});
 
         const data = await response.json();
 

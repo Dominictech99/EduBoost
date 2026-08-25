@@ -27,7 +27,7 @@ async function loadStudentData() {
     const studentId = loggedInStudent.id;
 
     const response = await fetch(
-      `http://localhost:3000/api/students/${studentId}`,
+      `https://eduboost-x7ia.onrender.com/api/admin/api/students/${studentId}`,
 
       {
         headers: {
@@ -169,7 +169,7 @@ async function renderCourses() {
 
     try {
 
-        const response = await fetch("http://localhost:3000/api/courses");
+        const response = await fetch("https://eduboost-x7ia.onrender.com/api/admin/api/courses");
 
         const courses = await response.json();
 

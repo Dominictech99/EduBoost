@@ -23,6 +23,5 @@ backup/
 Thumbs.db
 
 # Private application data
-Backend/students.json
 Backend/data/students.json
 Backend/admin.json

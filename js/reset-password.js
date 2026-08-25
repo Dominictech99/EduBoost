@@ -16,7 +16,7 @@ form.addEventListener("submit", async (e) => {
 
     try {
 
-        const res = await fetch("http://localhost:3000/api/auth/reset-password", {
+        const res = await fetch("https://eduboost-x7ia.onrender.com/api/admin/api/auth/reset-password", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

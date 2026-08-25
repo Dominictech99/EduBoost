@@ -30,7 +30,7 @@ this.renderDashboard();
 
 async loadStudents() {
   try {
-    const response = await fetch("http://localhost:3000/api/students");
+    const response = await fetch("https://eduboost-x7ia.onrender.com/api/admin/api/students");
     const data = await response.json();
 
     this.students = data.map((student) => ({
@@ -51,7 +51,7 @@ async loadStudents() {
 
 async loadStudentStats() {
   try {
-    const response = await fetch("http://localhost:3000/api/students/stats");
+    const response = await fetch("https://eduboost-x7ia.onrender.com/api/admin/api/students/stats");
     const stats = await response.json();
 
     document.getElementById("total-students").textContent = stats.total;
@@ -78,7 +78,7 @@ async loadTutors() {
 
   try {
 
-    const response = await fetch("http://localhost:3000/api/tutors");
+    const response = await fetch("https://eduboost-x7ia.onrender.com/api/admin/api/tutors");
 
     const tutors = await response.json();
 
@@ -285,7 +285,7 @@ async loadTutors() {
     try {
 
         const response = await fetch(
-            `http://localhost:3000/api/tutors/${tutorId}/status`,
+            `https://eduboost-x7ia.onrender.com/api/admin/api/tutors/${tutorId}/status`,
             {
                 method: "PATCH",
                 headers: {
@@ -319,7 +319,7 @@ async rejectTutor(tutorId) {
     try {
 
         const response = await fetch(
-            `http://localhost:3000/api/tutors/${tutorId}/status`,
+            `https://eduboost-x7ia.onrender.com/api/admin/api/tutors/${tutorId}/status`,
             {
                 method: "PATCH",
                 headers: {
