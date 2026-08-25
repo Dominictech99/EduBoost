@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+Backend/node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+Backend/.env
+
+# VS Code
+.vscode/
+vscode/
+
+# Backups
+backup/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Private application data
+Backend/students.json
+Backend/data/students.json
+Backend/admin.json

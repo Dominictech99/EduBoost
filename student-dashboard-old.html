@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard | EduBoost</title>
+
+    <link rel="stylesheet" href="css/student-dashboard.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">EduBoost</div>
+
+        <nav class="sidebar-menu">
+          <a href="#" class="active" data-section="dashboard"> Dashboard </a>
+
+          <a href="#" data-section="courses"> My Courses </a>
+
+          <a href="#" data-section="assignments"> Assignments </a>
+
+          <a href="#" data-section="quiz"> Quiz Results </a>
+
+          <a href="#" data-section="calendar"> Calendar </a>
+
+          <a href="#" data-section="resources"> Resources </a>
+
+          <a href="#" data-section="findTutors"> Find Tutors </a>
+
+          <a href="#" data-section="messages"> Messages </a>
+
+          <a href="#" data-section="certificates"> Certificates </a>
+
+          <a href="#" data-section="settings"> Settings </a>
+
+          <a href="#" class="logout"> Logout </a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+          <!-- Menu Button -->
+          <div class="menu-button" id="menuButton">☰</div>
+
+          <!-- Search -->
+          <div class="search-box">
+            <input type="search" placeholder="Search courses, lessons..." />
+          </div>
+
+          <!-- Header Right -->
+          <div class="header-right">
+            <!-- Notifications -->
+            <div class="notification">
+              🔔
+              <div class="notification-panel">
+                <h4>Notifications</h4>
+                <p>New Mathematics lesson available</p>
+                <p>Assignment due tomorrow</p>
+              </div>
+            </div>
+
+            <!-- Student Profile -->
+            <div class="profile-wrapper">
+              <img
+                id="studentAvatar"
+                class="student-avatar"
+                src="images/default-avatar.png"
+                alt="Student Avatar"
+              />
+
+              <div class="profile-info">
+                <h4 id="studentName">Loading...</h4>
+                <span id="studentRole">Student</span>
+                <p id="studentLevel"></p>
+              </div>
+
+              <div class="profile-dropdown">
+                <a href="#">My Profile</a>
+                <a href="#">Settings</a>
+                <a href="#" class="logout">Logout</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Welcome Banner -->
+
+        <!-- Welcome Banner -->
+
+        <section class="welcome-section">
+          <div class="welcome-left">
+            <span class="welcome-tag"> 🎓 Welcome to EduBoost </span>
+
+            <h1 id="welcomeMessage">Welcome back! 👋</h1>
+            <p id="currentDate" class="current-date"></p>
+
+            <p>
+              Continue your learning journey, complete your goals, and improve
+              your academic performance.
+            </p>
+
+            <div class="welcome-buttons">
+              <button class="primary-btn">Continue Learning</button>
+
+              <button class="secondary-btn">Browse Courses</button>
+            </div>
+          </div>
+
+          <div class="welcome-right">
+            <div class="goal-card">
+              <span class="goal-title"> 🎯 Today's Goal </span>
+
+              <h2>Complete 2 Lessons</h2>
+
+              <p>Stay consistent and maintain your learning streak.</p>
+
+              <div class="goal-progress">
+                <div></div>
+              </div>
+
+              <span class="goal-percent"> 60% Completed </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="stats-section">
+          <div class="stat-card">
+            <div class="stat-icon">📚</div>
+
+            <div class="stat-content">
+              <h3 id="courseCount">0</h3>
+
+              <p>Enrolled Courses</p>
+
+              <span>Active Learning</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🎥</div>
+
+            <div class="stat-content">
+              <h3 id="lessonCount">0</h3>
+
+              <p>Completed Lessons</p>
+
+              <span>Keep Going!</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🏆</div>
+
+            <div class="stat-content">
+              <h3 id="quizScore">0%</h3>
+
+              <p>Quiz Average</p>
+
+              <span>Excellent Progress</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+
+            <div class="stat-content">
+              <h3 id="learningStreak">0</h3>
+
+              <p>Learning Streak</p>
+
+              <span>Days in a Row</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="emptyDashboard" class="empty-dashboard" style="display: none;">
+    <div class="empty-dashboard-card">
+        <h2>📚 Welcome to EduBoost!</h2>
+
+        <p>
+            You haven't enrolled in any courses yet.
+        </p>
+
+        <p>
+            Browse our available courses and start learning today.
+        </p>
+
+        <button id="browseCoursesBtn" class="primary-btn">
+            Browse Courses
+        </button>
+    </div>
+</section>
+
+        <!-- Dashboard Grid -->
+
+        <div class="dashboard-grid">
+          <!-- Left Column -->
+
+          <div class="dashboard-left">
+            <!-- Continue Learning -->
+            <section class="learning-section">
+              <div class="section-header">
+                <h2>📚 Continue Learning</h2>
+                <a href="#">View All</a>
+              </div>
+
+              <div class="course-grid" id="studentCourses">
+                <!-- JavaScript will load courses here -->
+              </div>
+            </section>
+
+            <!-- Learning Analytics -->
+
+            <section class="analytics-section">
+              <div class="section-header">
+                <h2>📈 Weekly Progress</h2>
+
+                <span>This Week</span>
+              </div>
+
+              <div class="analytics-chart">
+                <canvas id="weeklyProgressChart"></canvas>
+              </div>
+            </section>
+          </div>
+
+          <!-- Right Column -->
+
+          <aside class="dashboard-right">
+            <section class="widget-card">
+              <h3>🔥 Study Streak</h3>
+
+              <h1 id="streakWidget">12 Days</h1>
+
+              <p>Keep learning every day!</p>
+            </section>
+
+            <section class="widget-card">
+              <h3>🎯 Today's Goal</h3>
+
+              <p>Complete 2 lessons</p>
+
+              <div class="goal-progress">
+                <div></div>
+              </div>
+
+              <span>60% Complete</span>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/student-dashboard.js"></script>
+  </body>
+</html>

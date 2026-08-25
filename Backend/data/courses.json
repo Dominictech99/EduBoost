@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "title": "Mathematics",
+    "description": "Master Secondary School Mathematics.",
+    "subject": "Mathematics",
+    "level": "SS1",
+    "teacher": "Mr James",
+    "thumbnail": "images/math.jpg",
+    "lessons": 24,
+    "price": "Free",
+    "students": 120,
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "title": "English Language",
+    "description": "Grammar, Vocabulary and Essay Writing.",
+    "subject": "English",
+    "level": "SS1",
+    "teacher": "Mrs Ada",
+    "thumbnail": "images/english.jpg",
+    "lessons": 18,
+    "price": "Free",
+    "students": 95,
+    "rating": 4.7
+  }
+]

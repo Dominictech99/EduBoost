@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Student Signup | EduBoost</title>
+
+    <link rel="stylesheet" href="css/signup.css" />
+  </head>
+
+  <body>
+    <div class="login-container">
+      <h1>Create EduBoost Student Account</h1>
+
+      <form id="signupForm">
+        <input
+          type="text"
+          id="name"
+          placeholder="Full Name"
+          autocomplete="name"
+          required
+        />
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Email Address"
+          autocomplete="off"
+          required
+        />
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          autocomplete="new-password"
+          required
+        />
+
+        <select id="level" required>
+          <option value="" selected disabled>Select Class Level</option>
+
+          <option value="JSS1">JSS1</option>
+
+          <option value="JSS2">JSS2</option>
+
+          <option value="JSS3">JSS3</option>
+
+          <option value="SS1">SS1</option>
+
+          <option value="SS2">SS2</option>
+
+          <option value="SS3">SS3</option>
+        </select>
+
+        <div class="profile-upload">
+          <img
+            src="images/default-avatar.png"
+            alt="Profile Preview"
+            id="imagePreview"
+            class="profile-preview"
+          />
+
+          <label for="profileImage" class="upload-btn">
+            📷 Choose Profile Picture
+          </label>
+
+          <input type="file" id="profileImage" accept="image/*" hidden />
+        </div>
+
+        <button type="submit">Create Account</button>
+      </form>
+
+      <p id="message"></p>
+    </div>
+
+    <script src="js/signup.js"></script>
+  </body>
+</html>

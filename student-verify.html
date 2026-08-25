@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email - EduBoost</title>
+
+    <link rel="stylesheet" href="css/">
+</head>
+
+<body>
+
+    <div class="verify-container">
+
+        <h1>Verify Your Email</h1>
+
+        <p>
+            We sent a verification code to your email.
+            Enter the code below.
+        </p>
+
+        <form id="verifyForm">
+
+            <input 
+                type="text" 
+                id="code"
+                placeholder="Enter 6-digit code"
+                maxlength="6"
+                required
+            >
+
+            <button type="submit">
+                Verify Account
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+
+<script src="js/student-verify.js"></script>
+
+</body>
+</html>

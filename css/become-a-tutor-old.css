@@ -1,0 +1,76 @@
+.tutor-apply-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  background: #f6f8fb;
+}
+
+.tutor-apply-card {
+  background: #fff;
+  max-width: 520px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.tutor-apply-card h1 {
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+}
+
+.tutor-apply-card .subtitle {
+  color: #667085;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.tutor-apply-card label {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tutor-apply-card input,
+.tutor-apply-card select,
+.tutor-apply-card textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.tutor-apply-card button {
+  margin-top: 24px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2f6fed;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tutor-apply-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-message {
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+.form-message.success {
+  color: #12b76a;
+}
+
+.form-message.error {
+  color: #f04438;
+}

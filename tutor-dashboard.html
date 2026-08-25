@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tutor Dashboard | EduBoost</title>
+<link rel="stylesheet" href="css/tutor-dashboard.css" />
+</head>
+<body>
+
+<div class="dashboard-layout">
+  <aside class="sidebar">
+    <h2 class="brand">EduBoost</h2>
+    <nav>
+      <button class="nav-link active" data-section="overview">Overview</button>
+      <button class="nav-link" data-section="courses">My Courses</button>
+      <button class="nav-link" data-section="quizzes">Quizzes</button>
+      <button class="nav-link" data-section="assignments">Assignments</button>
+      <button class="nav-link" data-section="live-classes">Live Classes</button>
+      <button class="nav-link" data-section="students">Students</button>
+      <button class="nav-link" data-section="earnings">Earnings</button>
+    </nav>
+    <button id="logoutBtn" class="logout-btn">Log Out</button>
+  </aside>
+
+  <main class="content">
+    <!-- OVERVIEW -->
+    <section id="overview" class="dashboard-section active">
+      <h1>Welcome back, <span id="tutorName">Tutor</span></h1>
+      <div class="stats-grid">
+        <div class="stat-card"><span id="statCourses">0</span><p>Courses</p></div>
+        <div class="stat-card"><span id="statStudents">0</span><p>Students</p></div>
+        <div class="stat-card"><span id="statEarnings">₦0</span><p>Total Earnings</p></div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses" class="dashboard-section">
+      <div class="section-header">
+        <h1>My Courses</h1>
+        <button class="primary-btn" id="newCourseBtn">+ New Course</button>
+      </div>
+      <div id="coursesList" class="courses-grid"></div>
+    </section>
+
+    <!-- COURSE DETAIL (videos/notes upload) -->
+    <section id="course-detail" class="dashboard-section">
+      <button class="back-btn" data-back="courses">← Back to Courses</button>
+      <h1 id="courseDetailTitle">Course</h1>
+
+      <div class="upload-block">
+        <h3>Upload Video</h3>
+        <form id="videoUploadForm">
+          <input type="text" name="title" placeholder="Video title" required />
+          <input type="file" name="video" accept="video/*" required />
+          <button type="submit">Upload Video</button>
+        </form>
+      </div>
+
+      <div class="upload-block">
+        <h3>Upload Notes</h3>
+        <form id="notesUploadForm">
+          <input type="text" name="title" placeholder="Notes title" required />
+          <input type="file" name="note" accept=".pdf,.doc,.docx" required />
+          <button type="submit">Upload Notes</button>
+        </form>
+      </div>
+
+      <div id="courseContentList"></div>
+    </section>
+
+    <!-- QUIZZES -->
+    <section id="quizzes" class="dashboard-section">
+      <h1>Quizzes</h1>
+      <p class="hint">Select a course from "My Courses" to add a quiz to it.</p>
+      <div id="quizzesList"></div>
+    </section>
+
+    <!-- ASSIGNMENTS -->
+    <section id="assignments" class="dashboard-section">
+      <h1>Assignments</h1>
+      <p class="hint">Select a course from "My Courses" to add or grade assignments.</p>
+      <div id="assignmentsList"></div>
+    </section>
+
+    <!-- LIVE CLASSES -->
+    <section id="live-classes" class="dashboard-section">
+      <h1>Live Classes</h1>
+      <p class="hint">Select a course from "My Courses" to schedule a live class.</p>
+      <div id="liveClassesList"></div>
+    </section>
+
+    <!-- STUDENTS -->
+    <section id="students" class="dashboard-section">
+      <h1>My Students</h1>
+      <table class="data-table">
+        <thead><tr><th>Name</th><th>Email</th><th>Courses</th></tr></thead>
+        <tbody id="studentsTableBody"></tbody>
+      </table>
+    </section>
+
+    <!-- EARNINGS -->
+    <section id="earnings" class="dashboard-section">
+      <h1>Earnings</h1>
+      <div class="stats-grid">
+        <div class="stat-card"><span id="earnTotal">₦0</span><p>Total</p></div>
+        <div class="stat-card"><span id="earnPending">₦0</span><p>Pending</p></div>
+        <div class="stat-card"><span id="earnWithdrawn">₦0</span><p>Withdrawn</p></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="js/tutor-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "courseId": 1,
+    "title": "Introduction to Mathematics",
+    "description": "Welcome to the Mathematics course.",
+    "videoUrl": "videos/math-introduction.mp4",
+    "notesUrl": "notes/math-introduction.pdf",
+    "duration": "15:20",
+    "order": 1,
+    "quizId": 1
+  },
+  {
+    "id": 2,
+    "courseId": 1,
+    "title": "Quadratic Equations",
+    "description": "Learn how to solve quadratic equations.",
+    "videoUrl": "videos/quadratic-equations.mp4",
+    "notesUrl": "notes/quadratic-equations.pdf",
+    "duration": "22:15",
+    "order": 2,
+    "quizId": 2
+  },
+  {
+    "id": 3,
+    "courseId": 2,
+    "title": "Parts of Speech",
+    "description": "Understanding nouns, verbs and adjectives.",
+    "videoUrl": "videos/parts-of-speech.mp4",
+    "notesUrl": "notes/parts-of-speech.pdf",
+    "duration": "18:45",
+    "order": 1,
+    "quizId": 3
+  }
+]

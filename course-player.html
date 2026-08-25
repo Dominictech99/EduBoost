@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Course Player | EduBoost</title>
+
+    <link rel="stylesheet" href="css/course-player.css">
+
+</head>
+
+<body>
+
+<div class="course-container">
+
+    <!-- Sidebar -->
+
+    <aside class="lesson-sidebar">
+
+        <h2>📚 Course Lessons</h2>
+
+       <div id="lessonList">
+
+    <div class="lesson-item active">
+
+        ▶ Lesson 1
+        <br>
+        <small>Introduction</small>
+
+    </div>
+
+    <div class="lesson-item">
+
+        Lesson 2
+        <br>
+        <small>Quadratic Equations</small>
+
+    </div>
+
+    <div class="lesson-item">
+
+        Lesson 3
+        <br>
+        <small>Word Problems</small>
+
+    </div>
+
+    <div class="lesson-item">
+
+        Lesson 4
+        <br>
+        <small>Revision</small>
+
+    </div>
+
+</div>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="course-main">
+
+        <!-- Course Header -->
+
+        <section class="course-header">
+
+    <div class="course-info">
+
+        <span class="course-badge">📘 Active Course</span>
+
+        <h1 id="courseTitle">Mathematics</h1>
+
+        <p id="courseTeacher">👨‍🏫 Tutor: Mr James</p>
+
+        <div class="course-progress">
+
+            <div class="progress-bar">
+
+                <div class="progress" id="courseProgressBar" style="width:80%;"></div>
+
+            </div>
+
+            <span id="courseProgressText">80% Completed</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- Video -->
+
+        <section class="video-section">
+
+            <div class="video-player">
+
+    <video id="lessonVideo" controls poster="images/video-thumbnail.jpg">
+
+        <source
+            id="videoSource"
+            src="videos/Student Dashboard.html - Eduboost - Visual Studio Code 2026-07-08 15-14-41.mp4"
+            type="video/mp4">
+
+        Your browser does not support HTML5 video.
+
+    </video>
+
+</div>
+
+        </section>
+
+        <section class="lesson-navigation">
+
+    <button id="previousLesson">
+        ⬅ Previous Lesson
+    </button>
+
+    <button id="nextLesson">
+        Next Lesson ➜
+    </button>
+
+</section>
+
+        <!-- Notes -->
+
+        <section class="notes-section">
+
+    <div class="section-header">
+
+        <h2>📄 Lesson Notes</h2>
+
+        <button id="downloadNotes">
+            Download PDF
+        </button>
+
+    </div>
+
+    <div id="lessonNotes">
+
+        <p>
+
+            In this lesson you'll learn how to solve quadratic equations
+            using factorization and the quadratic formula.
+
+        </p>
+
+    </div>
+
+</section>
+
+        <!-- Quiz -->
+
+        <section class="quiz-section">
+
+    <div class="section-header">
+
+        <h2>📝 Lesson Quiz</h2>
+
+    </div>
+
+    <p>
+
+        Test your understanding of this lesson.
+
+    </p>
+
+    <button id="startLessonQuiz">
+
+        Start Quiz
+
+    </button>
+
+</section>
+
+<section class="resources-section">
+
+    <div class="section-header">
+
+        <h2>📂 Learning Resources</h2>
+
+    </div>
+
+    <div class="resource-list">
+
+        <div class="resource-card">
+            <span>📄 Mathematics Notes.pdf</span>
+            <button>Download</button>
+        </div>
+
+        <div class="resource-card">
+            <span>📝 Practice Questions.pdf</span>
+            <button>Download</button>
+        </div>
+
+        <div class="resource-card">
+            <span>📊 Formula Sheet.pdf</span>
+            <button>Download</button>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="tutor-section">
+
+    <div class="section-header">
+
+        <h2>💬 Ask Your Tutor</h2>
+
+    </div>
+
+    <textarea
+        id="tutorMessage"
+        placeholder="Ask a question about this lesson..."></textarea>
+
+    <button id="sendQuestion">
+
+        Send Question
+
+    </button>
+
+</section>
+
+<section class="discussion-section">
+
+    <div class="section-header">
+
+        <h2>💭 Lesson Discussion</h2>
+
+    </div>
+
+    <div class="discussion-list">
+
+        <div class="discussion-card">
+
+            <strong>Grace</strong>
+
+            <p>
+                I finally understood this topic after watching the video twice.
+            </p>
+
+        </div>
+
+        <div class="discussion-card">
+
+            <strong>Daniel</strong>
+
+            <p>
+                The quadratic formula explanation was really helpful.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+</div>
+
+<script src="js/course-player.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+/* ===========================
+   EduBoost Student Signup
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    background:linear-gradient(135deg,#2563eb,#4f46e5,#7c3aed);
+}
+
+.login-container{
+    width:100%;
+    max-width:470px;
+    background:rgba(255,255,255,.95);
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 25px 60px rgba(0,0,0,.15);
+    backdrop-filter:blur(10px);
+}
+
+.login-container h1{
+    text-align:center;
+    color:#1e3a8a;
+    font-size:2rem;
+    margin-bottom:30px;
+}
+
+#signupForm{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+#signupForm input,
+#signupForm select{
+    width:100%;
+    padding:15px 18px;
+    border:1px solid #dbe4f0;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+    transition:.3s;
+    background:#fff;
+}
+
+#signupForm input:focus,
+#signupForm select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.form-group label{
+    font-weight:600;
+    color:#374151;
+}
+
+.form-group input[type="file"]{
+    padding:12px;
+    border:2px dashed #2563eb;
+    background:#f8fbff;
+    cursor:pointer;
+}
+
+button{
+    margin-top:10px;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:#fff;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+button:active{
+    transform:scale(.98);
+}
+
+#message{
+    margin-top:20px;
+    text-align:center;
+    font-weight:600;
+}
+
+@media(max-width:600px){
+
+.login-container{
+    padding:25px;
+}
+
+.login-container h1{
+    font-size:1.6rem;
+}
+
+}
+
+/* ======================
+   Profile Upload
+====================== */
+
+.profile-upload{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    margin:10px 0 20px;
+}
+
+.profile-preview{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #2563eb;
+    box-shadow:0 10px 30px rgba(37,99,235,.25);
+    background:#f3f4f6;
+}
+
+.upload-btn{
+    background:#2563eb;
+    color:white;
+    padding:12px 20px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.upload-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}

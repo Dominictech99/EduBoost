@@ -1,0 +1,29 @@
+Add these lines to your existing Backend/server.js
+====================================================
+
+1. Near the top, with your other requires:
+
+   const tutorRoutes = require("./routes/tutors");
+
+2. Near where you mount other routes (e.g. app.use("/api/auth", authRoutes)):
+
+   app.use("/api/tutors", tutorRoutes);
+
+3. Serve uploaded files (videos/notes/assignments) statically. Add this
+   near your other express.static() calls:
+
+   app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+
+4. Install the new dependencies:
+
+   npm install jsonwebtoken bcrypt multer uuid
+
+5. Add to your .env file:
+
+   JWT_SECRET=some-long-random-string-here
+
+That's it — /api/tutors/* is now live. If your existing student auth
+(Backend/routes/auth.js) does NOT use JWTs, let me know what it uses
+(sessions? something else?) and I'll adjust Backend/middleware/tutorAuth.js
+and tutorController.js's login/token logic to match, so tutors and
+students behave consistently.

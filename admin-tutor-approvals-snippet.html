@@ -1,0 +1,64 @@
+<!--
+  Add this section to your existing admin-dashboard.html, alongside your
+  current Dashboard / Students / Tutors sections.
+-->
+
+<section id="tutor-applications" class="dashboard-section">
+  <h1>Tutor Applications</h1>
+  <table class="data-table">
+    <thead>
+      <tr><th>Name</th><th>Email</th><th>Subject</th><th>Applied</th><th>Actions</th></tr>
+    </thead>
+    <tbody id="pendingTutorsBody"></tbody>
+  </table>
+</section>
+
+<script>
+// Add this to your existing admin-dashboard.js.
+// Assumes you store the admin's JWT in localStorage as "adminToken" —
+// adjust to match whatever your admin login already sets.
+
+async function loadPendingTutors() {
+  const token = localStorage.getItem("adminToken");
+  const res = await fetch("/api/tutors/admin/pending", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const tutors = await res.json();
+  const tbody = document.getElementById("pendingTutorsBody");
+  tbody.innerHTML = tutors.map((t) => `
+    <tr>
+      <td>${t.fullName}</td>
+      <td>${t.email}</td>
+      <td>${t.subject}</td>
+      <td>${new Date(t.appliedAt).toLocaleDateString()}</td>
+      <td>
+        <button onclick="approveTutor('${t.id}')">Approve</button>
+        <button onclick="rejectTutor('${t.id}')">Reject</button>
+      </td>
+    </tr>
+  `).join("") || `<tr><td colspan="5">No pending applications.</td></tr>`;
+}
+
+async function approveTutor(id) {
+  const token = localStorage.getItem("adminToken");
+  await fetch(`/api/tutors/admin/${id}/approve`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  loadPendingTutors();
+}
+
+async function rejectTutor(id) {
+  const reason = prompt("Reason for rejection (optional):") || "";
+  const token = localStorage.getItem("adminToken");
+  await fetch(`/api/tutors/admin/${id}/reject`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ reason }),
+  });
+  loadPendingTutors();
+}
+
+// Call loadPendingTutors() when the admin clicks into the
+// "Tutor Applications" nav item, same pattern as your existing sections.
+</script>
