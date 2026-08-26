@@ -75,29 +75,38 @@ async init() {
 }
 
 async loadTutors() {
-
   try {
+    const response = await fetch(
+      "http://localhost:3000/api/admin/tutors"
+    );
 
-    const response = await fetch("https://eduboost-x7ia.onrender.com/api/admin/api/tutors");
+    if (!response.ok) {
+      throw new Error("Failed to load tutors");
+    }
 
     const tutors = await response.json();
 
     this.tutors = tutors.map(tutor => ({
       ...tutor,
-      image: tutor.image || "profile.jpg",
+
+      name: tutor.fullName,
+
+      image: tutor.profileImage
+  ? `http://localhost:3000${tutor.profileImage}`
+  : "profile.jpg",
+
       rating: tutor.rating || "New",
-      registrationDate: tutor.submittedAt || new Date().toISOString(),
-      status: (tutor.status || "Pending").toLowerCase()
+
+      registrationDate: tutor.createdAt || null,
+
+      status: (tutor.status || "pending").toLowerCase()
     }));
 
     console.log("Tutors loaded:", this.tutors);
 
   } catch (error) {
-
     console.error("Failed to load tutors:", error);
-
   }
-
 }
 
 
@@ -285,7 +294,7 @@ async loadTutors() {
     try {
 
         const response = await fetch(
-            `https://eduboost-x7ia.onrender.com/api/admin/api/tutors/${tutorId}/status`,
+            `http://localhost:3000/api/admin/tutors/${tutorId}/status`,
             {
                 method: "PATCH",
                 headers: {
@@ -319,7 +328,7 @@ async rejectTutor(tutorId) {
     try {
 
         const response = await fetch(
-            `https://eduboost-x7ia.onrender.com/api/admin/api/tutors/${tutorId}/status`,
+            `http://localhost:3000/api/admin/tutors/${tutorId}/status`,
             {
                 method: "PATCH",
                 headers: {
@@ -348,36 +357,211 @@ async rejectTutor(tutorId) {
 
 }
 
-  viewTutor(tutorId) {
-    const tutor = this.tutors.find(t => t.id === tutorId);
-    if (tutor) {
-      const modal = document.getElementById('tutor-modal');
-      const modalBody = document.getElementById('modal-body');
-      
-      modalBody.innerHTML = `
-        <h2 style="margin-bottom: 16px;">${tutor.name}</h2>
-        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
-          <img src="${tutor.image}" alt="${tutor.name}" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;" />
-          <div>
-            <p><strong>Subject:</strong> ${tutor.subject}</p>
-            <p><strong>Email:</strong> ${tutor.email}</p>
-            <p><strong>Experience:</strong> ${tutor.experience}</p>
-            <p><strong>Rating:</strong> ⭐ ${tutor.rating}</p>
-            <p><strong>Status:</strong> <span class="status-badge status-${tutor.status}">${tutor.status.toUpperCase()}</span></p>
-            <p><strong>Registration Date:</strong> ${new Date(tutor.registrationDate).toLocaleDateString()}</p>
-          </div>
-        </div>
-        ${tutor.status === 'pending' ? `
-          <div style="display: flex; gap: 10px;">
-            <button class="action-btn approve-btn" onclick="admin.approveTutor(${tutor.id})" style="flex: 1;">Approve</button>
-            <button class="action-btn reject-btn" onclick="admin.rejectTutor(${tutor.id})" style="flex: 1;">Reject</button>
-          </div>
-        ` : ''}
-      `;
-      
-      modal.classList.add('show');
-    }
+
+viewTutor(tutorId) {
+
+  const tutor = this.tutors.find(
+    t => Number(t.id) === Number(tutorId)
+  );
+
+  if (!tutor) {
+    console.error("Tutor not found:", tutorId);
+    return;
   }
+
+  const modal = document.getElementById("tutor-modal");
+  const modalBody = document.getElementById("modal-body");
+
+  // Build document links
+  const cvLink = tutor.cv
+    ? `
+      <a
+        href="http://localhost:3000${tutor.cv}"
+        target="_blank"
+        class="document-link"
+      >
+        📄 View CV
+      </a>
+    `
+    : "<p>No CV uploaded.</p>";
+
+  const certificateLink = tutor.certificate
+    ? `
+      <a
+        href="http://localhost:3000${tutor.certificate}"
+        target="_blank"
+        class="document-link"
+      >
+        📄 View Certificate
+      </a>
+    `
+    : "<p>No certificate uploaded.</p>";
+
+  modalBody.innerHTML = `
+
+    <div class="tutor-review">
+
+      <!-- PROFILE -->
+
+      <div class="tutor-review-header">
+
+        <img
+          src="${tutor.image}"
+          alt="${tutor.name}"
+          class="review-avatar"
+        />
+
+        <div>
+          <h2>${tutor.name}</h2>
+
+          <p class="tutor-subject">
+            ${tutor.subject}
+          </p>
+
+          <span class="tutor-status status-${tutor.status}">
+            ${tutor.status.toUpperCase()}
+          </span>
+        </div>
+
+      </div>
+
+
+      <!-- PERSONAL INFORMATION -->
+
+      <div class="review-section">
+
+        <h3>Personal Information</h3>
+
+        <div class="review-grid">
+
+          <p>
+            <strong>Email</strong>
+            ${tutor.email || "N/A"}
+          </p>
+
+          <p>
+            <strong>Phone</strong>
+            ${tutor.phone || "N/A"}
+          </p>
+
+          <p>
+            <strong>Location</strong>
+            ${tutor.location || "N/A"}
+          </p>
+
+          <p>
+            <strong>Education</strong>
+            ${tutor.education || "N/A"}
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROFESSIONAL INFORMATION -->
+
+      <div class="review-section">
+
+        <h3>Professional Information</h3>
+
+        <div class="review-grid">
+
+          <p>
+            <strong>Subject</strong>
+            ${tutor.subject || "N/A"}
+          </p>
+
+          <p>
+            <strong>Qualification</strong>
+            ${tutor.qualification || "N/A"}
+          </p>
+
+          <p>
+            <strong>Experience</strong>
+            ${tutor.experience || "N/A"}
+          </p>
+
+          <p>
+            <strong>Availability</strong>
+            ${tutor.availability || "N/A"}
+          </p>
+
+          <p>
+            <strong>Teaching Hours</strong>
+            ${tutor.hours || "N/A"} hours
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- BIO -->
+
+      <div class="review-section">
+
+        <h3>About the Tutor</h3>
+
+        <p class="tutor-bio">
+          ${tutor.bio || "No biography provided."}
+        </p>
+
+      </div>
+
+
+      <!-- DOCUMENTS -->
+
+      <div class="review-section">
+
+        <h3>Application Documents</h3>
+
+        <div class="documents">
+
+          ${cvLink}
+
+          ${certificateLink}
+
+        </div>
+
+      </div>
+
+
+      <!-- ACTIONS -->
+
+      ${
+        tutor.status === "pending"
+          ? `
+
+            <div class="review-actions">
+
+              <button
+                class="action-btn approve-btn"
+                onclick="admin.approveTutor(${tutor.id})"
+              >
+                Approve
+              </button>
+
+              <button
+                class="action-btn reject-btn"
+                onclick="admin.rejectTutor(${tutor.id})"
+              >
+                Reject
+              </button>
+
+            </div>
+
+          `
+          : ""
+      }
+
+    </div>
+
+  `;
+
+  modal.classList.add("show");
+}
+
 
   viewStudent(studentId) {
     const student = this.students.find(s => s.id === studentId);

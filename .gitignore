@@ -25,3 +25,6 @@ Thumbs.db
 # Private application data
 Backend/data/students.json
 Backend/admin.json
+
+# Uploaded tutor files
+Backend/uploads/

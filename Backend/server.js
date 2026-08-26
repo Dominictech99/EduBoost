@@ -10,6 +10,12 @@ const app = express();
 // Serve frontend files (Eduboost/ folder, one level up from backend/)
 app.use(express.static(path.join(__dirname, "..")));
 
+// Serve Uploaded files
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "uploads"))
+);
+
 app.use(cors());
 
 app.use(express.json({
@@ -29,6 +35,9 @@ app.get("/test", (req, res) => {
     });
 });
 
+// Admin Routes
+const adminTutorRoutes = require("./routes/adminTutors");
+app.use("/api/admin", adminTutorRoutes);
 
 // Student routes
 const studentRoutes = require("./routes/students");
@@ -38,8 +47,8 @@ const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
 // Tutor routes
-// const tutorRoutes = require("./routes/tutorRoutes");
-// app.use("/api/tutors", tutorRoutes);
+const tutorRoutes = require("./routes/tutors");
+app.use("/api/tutors", tutorRoutes);
 
 // Course routes
 const courseRoutes = require("./routes/courses");
