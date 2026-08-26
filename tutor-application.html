@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Apply as a Tutor | EduBoost</title>
+
+  <link rel="stylesheet" href="css/tutor-application.css">
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header class="navbar">
+
+    <div class="nav-container">
+
+      <a href="index.html" class="logo">
+        Edu<span>Boost</span>
+      </a>
+
+      <a href="become-a-tutor.html" class="back-link">
+        ← Back to Tutor Page
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= PAGE HEADER ================= -->
+
+  <section class="application-header">
+
+    <p class="eyebrow">JOIN OUR TUTOR COMMUNITY</p>
+
+    <h1>
+      Apply to Become an
+      <span>EduBoost Tutor</span>
+    </h1>
+
+    <p>
+      Complete the application below and our team will review your
+      qualifications and teaching experience.
+    </p>
+
+  </section>
+
+
+  <!-- ================= APPLICATION FORM ================= -->
+
+  <main class="application-section">
+
+    <form
+      id="tutorApplicationForm"
+      class="tutor-application-form"
+    >
+
+
+      <!-- ================= PERSONAL INFORMATION ================= -->
+
+      <section class="form-section">
+
+        <div class="form-section-heading">
+
+          <span class="step-badge">1</span>
+
+          <div>
+            <h2>Personal Information</h2>
+
+            <p>
+              Tell us about yourself and provide your contact details.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label for="fullName">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Enter your full name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="email">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="phone">
+              Phone Number
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Enter your phone number"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="location">
+              Location
+            </label>
+
+            <input
+              type="text"
+              id="location"
+              name="location"
+              placeholder="City, Country"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- Profile Photo -->
+
+        <div class="upload-group">
+
+          <label for="profileImage">
+            Profile Photo
+          </label>
+
+          <p class="upload-hint">
+            Upload a clear professional photo.
+          </p>
+
+          <input
+            type="file"
+            id="profileImage"
+            name="profileImage"
+            accept="image/*"
+            required
+          >
+
+          <img
+            id="imagePreview"
+            class="image-preview"
+            alt="Profile preview"
+          >
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= PROFESSIONAL INFORMATION ================= -->
+
+      <section class="form-section">
+
+        <div class="form-section-heading">
+
+          <span class="step-badge">2</span>
+
+          <div>
+
+            <h2>Professional Information</h2>
+
+            <p>
+              Tell us about your education and teaching experience.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label for="subject">
+              Subject You Want to Teach
+            </label>
+
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="e.g. Mathematics, Biology"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="qualification">
+              Highest Qualification
+            </label>
+
+            <select
+              id="qualification"
+              name="qualification"
+              required
+            >
+
+              <option value="">
+                Select your qualification
+              </option>
+
+              <option>Secondary School Certificate</option>
+
+              <option>Diploma</option>
+
+              <option>Bachelor's Degree</option>
+
+              <option>Master's Degree</option>
+
+              <option>PhD</option>
+
+              <option>Other</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="experience">
+              Years of Teaching Experience
+            </label>
+
+            <select
+              id="experience"
+              name="experience"
+              required
+            >
+
+              <option value="">
+                Select experience
+              </option>
+
+              <option>Less than 1 year</option>
+
+              <option>1 - 2 years</option>
+
+              <option>3 - 5 years</option>
+
+              <option>6 - 10 years</option>
+
+              <option>More than 10 years</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="education">
+              Institution / School
+            </label>
+
+            <input
+              type="text"
+              id="education"
+              name="education"
+              placeholder="Name of your school or institution"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- Professional Bio -->
+
+        <div class="form-group full-width">
+
+          <label for="bio">
+            Professional Bio
+          </label>
+
+          <textarea
+            id="bio"
+            name="bio"
+            rows="6"
+            placeholder="Tell us about your teaching experience, qualifications, and why you want to become an EduBoost tutor..."
+            required
+          ></textarea>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= DOCUMENTS ================= -->
+
+      <section class="form-section">
+
+        <div class="form-section-heading">
+
+          <span class="step-badge">3</span>
+
+          <div>
+
+            <h2>Documents & Qualifications</h2>
+
+            <p>
+              Upload your CV and relevant qualifications.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <div class="upload-group">
+
+            <label for="cv">
+              Upload CV / Resume
+            </label>
+
+            <p class="upload-hint">
+              PDF, DOC or DOCX. Maximum file size: 5MB.
+            </p>
+
+            <input
+              type="file"
+              id="cv"
+              name="cv"
+              accept=".pdf,.doc,.docx"
+              required
+            >
+
+          </div>
+
+
+          <div class="upload-group">
+
+            <label for="certificate">
+              Upload Certificate
+            </label>
+
+            <p class="upload-hint">
+              Optional. Upload a relevant qualification certificate.
+            </p>
+
+            <input
+              type="file"
+              id="certificate"
+              name="certificate"
+              accept=".pdf,.jpg,.jpeg,.png"
+            >
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= AVAILABILITY ================= -->
+
+      <section class="form-section">
+
+        <div class="form-section-heading">
+
+          <span class="step-badge">4</span>
+
+          <div>
+
+            <h2>Teaching Availability</h2>
+
+            <p>
+              Tell us when you are available to teach students.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label for="availability">
+              Availability
+            </label>
+
+            <select
+              id="availability"
+              name="availability"
+              required
+            >
+
+              <option value="">
+                Select your availability
+              </option>
+
+              <option>Weekdays</option>
+
+              <option>Weekends</option>
+
+              <option>Both Weekdays and Weekends</option>
+
+              <option>Flexible</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="hours">
+              Hours Available Per Week
+            </label>
+
+            <input
+              type="number"
+              id="hours"
+              name="hours"
+              min="1"
+              placeholder="e.g. 10"
+              required
+            >
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= ACCOUNT ================= -->
+
+      <section class="form-section">
+
+        <div class="form-section-heading">
+
+          <span class="step-badge">5</span>
+
+          <div>
+
+            <h2>Create Your Account</h2>
+
+            <p>
+              Create a secure password for your tutor account.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label for="password">
+              Password
+            </label>
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create a secure password"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="confirmPassword">
+              Confirm Password
+            </label>
+
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              required
+            >
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= AGREEMENT ================= -->
+
+      <section class="agreement-section">
+
+        <label class="checkbox-label">
+
+          <input
+            type="checkbox"
+            id="agreement"
+            required
+          >
+
+          <span>
+            I confirm that the information provided in this application
+            is accurate and I agree to the EduBoost tutor review process.
+          </span>
+
+        </label>
+
+      </section>
+
+
+      <!-- ================= SUBMIT ================= -->
+
+      <div class="submit-section">
+
+        <button
+          type="submit"
+          class="submit-btn"
+        >
+          Submit Tutor Application
+        </button>
+
+        <p class="submit-note">
+          Our team will review your application and contact you by email.
+        </p>
+
+      </div>
+
+    </form>
+
+  </main>
+
+
+  <script src="js/tutor-application.js"></script>
+
+</body>
+</html>
