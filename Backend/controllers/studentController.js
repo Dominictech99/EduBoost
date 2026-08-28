@@ -1,7 +1,11 @@
-const students = require("../data/students");
+const fs = require("fs");
+const path = require("path");
 
-console.log("Students data:", students)
-console.log("Is array:", Array.isArray(students))
+const filePath = path.join(__dirname, "..", "data", "students.json");
+
+const getStudentsData = () => {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+};
 
 // Register student
 const signupStudent = (req, res) => {
@@ -41,7 +45,17 @@ const loginStudent = (req, res) => {
 
 // Get students
 const getStudents = (req, res) => {
-    res.json(students);
+    try {
+        const students = getStudentsData();
+
+        res.json(students);
+    } catch (error) {
+        console.error("GET STUDENTS ERROR:", error);
+
+        res.status(500).json({
+            message: "Could not load students"
+        });
+    }
 };
 
 

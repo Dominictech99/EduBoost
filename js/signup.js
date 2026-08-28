@@ -25,9 +25,9 @@ const signupForm = document.getElementById("signupForm");
 const message = document.getElementById("message");
 
 signupForm.addEventListener("submit", async (e) => {
-    console.log("Handler fired");
-
     e.preventDefault();
+
+    console.log("Handler fired");
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -36,8 +36,8 @@ signupForm.addEventListener("submit", async (e) => {
 
     try {
         console.log("Sending signup request...");
-
-        const response = await fetch("https://eduboost-x7ia.onrender.com/api/auth/signup", {
+        
+const response = await fetch("https://eduboost-x7ia.onrender.com/api/auth/signup", {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
