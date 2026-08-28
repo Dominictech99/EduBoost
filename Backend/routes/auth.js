@@ -11,7 +11,7 @@ const {
 } = require("../services/emailService");
 
 const path = require("path");
-const filePath = path.join(__dirname, "..", "students.json");
+const filePath = path.join(__dirname, "..", "data", "students.json");
 
 const SECRET_KEY = "eduboost_secret_key";
 
