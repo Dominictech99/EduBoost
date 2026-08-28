@@ -21,6 +21,9 @@ nav {
   align-items: center;
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  position: relative;
+  z-index: 1000;
 }
 
 .nav-logo {
@@ -83,6 +86,7 @@ nav {
   border: 2px solid #3b82f6;
   color: #3b82f6;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .btn-outline:hover {
@@ -94,6 +98,7 @@ nav {
   background-color: #3b82f6;
   color: #ffffff;
   border: none;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -157,6 +162,10 @@ nav {
   flex-direction: row;
 
 
+  position: relative;
+  overflow: hidden;
+
+
   min-height: 80vh;
   padding: 80px 8%;
 
@@ -207,8 +216,8 @@ nav {
   font-size: 14px;
 }
 
-.hero-left h2 {
-  font-size: clamp(42px, 5w, 64px);
+.hero-left h1 {
+  font-size: clamp(42px, 5vw, 64px);
   line-height: 1.2;
   color: #ffffff;
   margin-bottom: 20px;
@@ -237,8 +246,9 @@ nav {
 
 .hero-right img {
   width: 100%;
+  max-width: 520px;
   height: auto;
-  max-width: 550px;
+  object-fit: contain;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -271,6 +281,41 @@ nav {
 .hero-buttons .btn:hover {
   transform: translateY(-3px);
 }
+
+.hero-buttons .btn-outline {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.hero-buttons .btn-outline:hover {
+  background-color: #ffffff;
+  color: #1e3a8a;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  color: #ffffff;
+  flex-wrap: wrap;
+}
+
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stats strong {
+  font-size: 18px;
+  color: #facc15;
+}
+
+.hero-stats span {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+
 
 @media (max-width: 768px) {
   .hero {
