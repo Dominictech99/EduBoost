@@ -79,12 +79,12 @@ res.json({
   message: "Verification code sent to your email",
 });
   } catch (error) {
-    console.error(error);
-
-    res.status(500).json({
-      message: "Server error",
-    });
-  }
+  console.error("SIGNUP ERROR:", error);
+  res.status(500).json({
+    message: "Server error",
+    error: error.message
+  });
+}
 });
 
 
