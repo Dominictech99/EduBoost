@@ -92,66 +92,63 @@ res.json({
 // Student Login
 
 router.post("/login", async (req, res) => {
-  const students = JSON.parse(fs.readFileSync(filePath));
+  try {
+    const students = JSON.parse(fs.readFileSync(filePath));
 
-  console.log("Login request:", req.body.email);
+    console.log("Login request:", req.body.email);
 
-  const student = students.find((student) => student.email === req.body.email);
+    const student = students.find((s) => s.email === req.body.email);
 
-  if (!student.verified) {
-  return res.status(403).json({
-    message: "Invalid login details."
-  });
-}
+    if (!student) {
+      return res.status(401).json({
+        message: "Please verify your email before logging in.",
+      });
+    }
 
-  console.log("Student found:", student);
+    if (!student.verified) {
+      return res.status(403).json({
+        message: "Please verify your email before logging in.",
+      });
+    }
 
-  if (!student) {
-    return res.status(401).json({
-      message: "please verify your email before loggon in.",
+    const passwordMatch = await bcrypt.compare(
+      req.body.password,
+      student.password,
+    );
+
+    console.log("Password match:", passwordMatch);
+
+    if (!passwordMatch) {
+      return res.status(401).json({
+        message: "Invalid login details",
+      });
+    }
+
+    const token = jwt.sign(
+      {
+        id: student.id,
+        role: student.role,
+      },
+      SECRET_KEY,
+      { expiresIn: "2h" },
+    );
+
+    res.json({
+      message: "Login successful",
+      token,
+      student: {
+        id: student.id,
+        name: student.name,
+        email: student.email,
+        level: student.level,
+        profileImage: student.profileImage,
+        role: student.role,
+      },
     });
+  } catch (error) {
+    console.error("LOGIN ERROR:", error);
+    res.status(500).json({ message: "Server error" });
   }
-
-  const passwordMatch = await bcrypt.compare(
-    req.body.password,
-    student.password,
-  );
-
-  console.log("Password match:", passwordMatch);
-
-  if (!passwordMatch) {
-    return res.status(401).json({
-      message: "Invalid login details",
-    });
-  }
-
-  if (!student.verified) {
-  return res.status(403).json({
-    message: "Please verify your email before logging in.",
-  });
-}
-
-  const token = jwt.sign(
-    {
-      id: student.id,
-      role: student.role,
-    },
-    SECRET_KEY,
-    { expiresIn: "2h" },
-  );
-
-  res.json({
-    message: "Login successful",
-    token,
-    student: {
-      id: student.id,
-      name: student.name,
-      email: student.email,
-      level: student.level,
-      profileImage: student.profileImage,
-      role: student.role,
-    },
-  });
 });
 
 // Forgot Password

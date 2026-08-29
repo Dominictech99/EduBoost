@@ -15,7 +15,7 @@ verifyForm.addEventListener("submit", async (e) => {
     try {
 
         const response = await fetch(
-            "https://eduboost-x7ia.onrender.com/api/admin/api/auth/verify-email",
+            "tps://eduboost-x7ia.onrender.com/api/auth/verify-email",
             {
                 method: "POST",
 

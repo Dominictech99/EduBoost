@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #0f172a 0%,
+        #1e3a8a 35%,
+        #4f46e5 70%,
+        #7c3aed 100%
+    );
+}
+
+.verify-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+
+    background: #ffffff;
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.verify-container h1 {
+    margin-bottom: 15px;
+    color: #1e293b;
+    font-size: 30px;
+}
+
+.verify-container > p {
+    margin-bottom: 25px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+#verifyForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#code {
+    width: 100%;
+    padding: 15px;
+
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+
+    outline: none;
+
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 6px;
+}
+
+#code:focus {
+    border-color: #3b82f6;
+}
+
+#verifyForm button {
+    padding: 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #3b82f6;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+#verifyForm button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+#message {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+@media (max-width: 500px) {
+    .verify-container {
+        padding: 30px 20px;
+    }
+
+    .verify-container h1 {
+        font-size: 25px;
+    }
+}
