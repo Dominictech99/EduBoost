@@ -8,7 +8,7 @@ loginForm.addEventListener("submit", async (e) => {
   const password = document.getElementById("password").value;
 
   try {
-    const response = await fetch("https://eduboost-x7ia.onrender.com/api/admin/api/auth/login", {
+    const response = await fetch("https://eduboost-x7ia.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
